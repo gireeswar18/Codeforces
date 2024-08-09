@@ -18,6 +18,9 @@ public class SoldierAndBananas_546A {
 
         }
 
-        System.out.println(cost - init);
+        if (cost - init < 0)
+            System.out.println(0);
+        else
+            System.out.println(cost - init);
     }
 }
