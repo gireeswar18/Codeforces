@@ -1,5 +1,6 @@
 package codeforces;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Puzzles_337A {
@@ -9,25 +10,23 @@ public class Puzzles_337A {
         int students = sc.nextInt();
         int puzzles = sc.nextInt();
 
-        int max = Integer.MIN_VALUE;
-        int min = Integer.MAX_VALUE;
-
+        int[] arr = new int[puzzles];
         int res = Integer.MAX_VALUE;
 
         for (int i = 0; i < puzzles; i++) {
 
-            int puzzle = sc.nextInt();
-
-            if (puzzle < min)
-                min = puzzle;
-            if (puzzle > max)
-                max = puzzle;
-
-            if (max != min)
-                res = Math.min(res, max - min);
+            arr[i] = sc.nextInt();
 
         }
 
-        System.out.println(res);
+        Arrays.sort(arr);
+
+
+        for (int i = 0; i <= puzzles - students; i++) {
+
+            res = Math.min(res, arr[i + students - 1] - arr[i]);
+        }
+
+        System.out.println(res == Integer.MAX_VALUE ? 0 : res);
     }
 }
