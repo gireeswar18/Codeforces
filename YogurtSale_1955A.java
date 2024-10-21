@@ -12,30 +12,11 @@ public class YogurtSale_1955A {
             int n = sc.nextInt();
             int one = sc.nextInt();
             int two = sc.nextInt();
-            int buy;
-            if (one * 2 < two) {
-                buy = one;
-            }
-            else {
-                buy = two;
-            }
 
-            if (n % 2 == 0) {
-                if (buy == one) {
-                    System.out.println(buy * n);
-                }
-                else {
-                    System.out.println((n / 2) * buy);
-                }
-            }
-            else {
-                if (buy == one) {
-                    System.out.println(buy * n);
-                }
-                else {
-                    System.out.println((n / 2) * buy + one);
-                }
-            }
+            int usingOne = n * one;
+            int usingTwo = (n / 2) * two + (n % 2 == 1 ? one : 0);
+
+            System.out.println(Math.min(usingOne, usingTwo));
         }
     }
 }
